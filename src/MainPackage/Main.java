@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package xml_data_builder_for_asru;
+package MainPackage;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,7 +34,7 @@ import javafx.stage.Stage;
  *
  * @author Shivam Tiwari
  */
-public class XML_Data_Builder_for_ASRU extends Application {
+public class Main extends Application {
     
     @Override
     public void start(Stage primaryStage) {
@@ -92,7 +92,7 @@ public class XML_Data_Builder_for_ASRU extends Application {
                 }
                 
             } catch (ClassNotFoundException | SQLException ex) {
-                Logger.getLogger(XML_Data_Builder_for_ASRU.class.getName()).log(Level.SEVERE, null, ex);
+                
             }
         });
 
