@@ -11,8 +11,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -29,6 +27,8 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import Pages.Page1;
 
 /**
  *
@@ -86,6 +86,9 @@ public class Main extends Application {
                 rs = stmt.executeQuery("select username from login where username='"+userTextField.getText()+"' and password='"+pwBox.getText()+"'");
                 if(rs.next()){
                     actiontarget.setText("Pass validated for " + userTextField.getText());
+                                        
+                    Page1 page1 = new Page1();
+                    page1.start(primaryStage);
                 }
                 else{
                     actiontarget.setText("Pass validation failed. Please retry.");
