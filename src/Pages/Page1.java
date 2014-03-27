@@ -42,34 +42,48 @@ public class Page1 extends Application {
         
         Label dataSize = new Label("Total size in bytes:");
         grid.add(dataSize, 0, 1);
-        
         TextField sizeTextField = new TextField();
         grid.add(sizeTextField, 1, 1);
         
         Label minSwitch = new Label("Minimum number of switches:");
         grid.add(minSwitch, 0, 2);
-        
         TextField minSwitchTextField = new TextField();
         grid.add(minSwitchTextField, 1, 2);
         
         Label maxSwitch = new Label("Maximum number of switches:");
         grid.add(maxSwitch, 0, 3);
-        
         TextField maxSwitchTextField = new TextField();
         grid.add(maxSwitchTextField, 1, 3);
+        
+        Label targetFolder = new Label("Target folder:");
+        grid.add(targetFolder, 0, 4);
+        TextField targetFolderTextField = new TextField();
+        grid.add(targetFolderTextField, 1, 4);
         
         Button btn = new Button("Confirm");
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 1, 5);
+        grid.add(hbBtn, 1, 6);
         
         final Text actiontarget = new Text();
         grid.add(actiontarget, 1, 7);
         
         btn.setOnAction((ActionEvent e) -> {
             actiontarget.setFill(Color.FIREBRICK);
-            actiontarget.setText("Confirmed");
+            
+            if("".equals(sizeTextField.getText()) || "".equals(minSwitchTextField.getText()) || "".equals(maxSwitchTextField.getText()) || "".equals(targetFolderTextField.getText())){
+                
+                actiontarget.setText("Field(s) is(are) left blank.");
+            }
+            else{
+                actiontarget.setText("Confirmed");
+            
+                /*
+                Stuff goes here
+                Call constructor of page2 with required data.
+                */
+            }
         });
         
         Scene scene = new Scene(grid, 500, 400);
@@ -77,9 +91,4 @@ public class Page1 extends Application {
         
         primaryStage.show();
     }
-    /*
-    public static void main(String[] args){
-    launch(args);
-    }
-    */
 }
