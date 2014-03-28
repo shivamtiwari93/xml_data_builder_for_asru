@@ -31,7 +31,7 @@ import javafx.stage.Stage;
  *
  * @author Shivam Tiwari
  */
-public class Page0 extends Application {
+public class Login extends Application {
     
     boolean loginState;
     
@@ -88,7 +88,7 @@ public class Page0 extends Application {
                     loginState = true;
                     actiontarget.setText("Pass validated for " + userTextField.getText());
                     
-                    Page1 page1 = new Page1();
+                    GiveDetails page1 = new GiveDetails();
                     page1.start(primaryStage);
                 }
                 else{
