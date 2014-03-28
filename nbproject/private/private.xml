@@ -3,10 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/Pages/Page2.java</file>
-            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/Pages/Page1.java</file>
-            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/MainPackage/Main.java</file>
-            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/Pages/Page0.java</file>
+            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/XMLGenerator/MakeXML.java</file>
+            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/Pages/GenerateData.java</file>
+            <file>file:/C:/Users/Shivam%20Tiwari/Documents/NetBeansProjects/XML_Data_Builder_for_ASRU/src/Pages/GiveDetails.java</file>
         </group>
     </open-files>
 </project-private>

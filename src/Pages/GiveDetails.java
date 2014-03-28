@@ -6,6 +6,10 @@
 
 package Pages;
 
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -26,7 +30,7 @@ import javafx.stage.Stage;
  * @author Shivam Tiwari
  */
 
-public class Page1 extends Application {
+public class GiveDetails extends Application {
     @Override
     public void start(Stage primaryStage){
         primaryStage.setTitle("XML Data-Builder for ASRU");
@@ -40,7 +44,7 @@ public class Page1 extends Application {
         scenetitle.setFont(Font.font("Tahoma", FontWeight.NORMAL, 20));
         grid.add(scenetitle, 0, 0, 2, 1);
         
-        Label dataSize = new Label("Total size in bytes:");
+        Label dataSize = new Label("Total size in Bytes:");
         grid.add(dataSize, 0, 1);
         TextField sizeTextField = new TextField();
         grid.add(sizeTextField, 1, 1);
@@ -79,10 +83,13 @@ public class Page1 extends Application {
             else{
                 actiontarget.setText("Confirmed");
             
-                /*
-                Stuff goes here
-                Call constructor of page2 with required data.
-                */
+                GenerateData page2;
+                page2 = new GenerateData(targetFolderTextField.getText(),Long.parseLong(sizeTextField.getText()),Integer.parseInt(minSwitchTextField.getText()),Integer.parseInt(maxSwitchTextField.getText()));
+                try {
+                    page2.start(primaryStage);
+                } catch (FileNotFoundException | UnsupportedEncodingException ex) {
+                    Logger.getLogger(GiveDetails.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
         

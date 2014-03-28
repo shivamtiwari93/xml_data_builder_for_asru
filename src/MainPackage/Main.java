@@ -6,7 +6,7 @@
 
 package MainPackage;
 
-import Pages.Page0;
+import Pages.Login;
 /**
  *
  * @author Shivam Tiwari
@@ -17,7 +17,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        Page0 page0 = new Page0();
+        Login page0 = new Login();
         page0.start(null);
     }
 }
