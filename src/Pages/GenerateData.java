@@ -6,10 +6,9 @@
 
 package Pages;
 
-import XMLGenerator.MakeXML;
+import XMLGenerator.BuildXML;
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
-
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.geometry.Pos;
@@ -39,7 +38,7 @@ public class GenerateData extends Application {
     
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException, UnsupportedEncodingException{
-        
+                
         primaryStage.setTitle("XML Data-Builder for ASRU");
         
         GridPane grid = new GridPane();
@@ -54,44 +53,53 @@ public class GenerateData extends Application {
         ProgressBar pb = new ProgressBar();
         pb.setMinWidth(400);
         pb.setMinHeight(20);
-        grid.add(pb, 0, 1);
-        
-        Scene scene = new Scene(grid, 500, 400);
-        primaryStage.setScene(scene);
-        
+                
         Button btn = new Button("Abort");
         btn.setCancelButton(true);
         HBox hbBtn = new HBox(10);
         hbBtn.setAlignment(Pos.BOTTOM_RIGHT);
         hbBtn.getChildren().add(btn);
-        grid.add(hbBtn, 0, 5);
-        
+                
         btn.setOnAction((ActionEvent e) -> {
-            FinishPage fp = new FinishPage(false);
-            fp.start(primaryStage);
+            FinishPage fp2 = new FinishPage(false);
+            fp2.start(primaryStage);
         });
         
-        MakeXML generator;
+        /*new Thread(
+        () -> {
+        try{
+        Thread.sleep(20001);
         
         while(currSize < sizeOfData){
-            
-            fileNumber++;
-            fileAddress = targetFolder + "/" + String.valueOf(fileNumber) + ".xml";
-            generator = new MakeXML(minSwitch,maxSwitch,fileAddress,fileNumber);
-            currSize = currSize + generator.makeFile();
-            pb.setProgress((float)currSize/(float)sizeOfData);
-            primaryStage.show();
-            
+        
+        fileNumber++;
+        fileAddress = targetFolder + "/" + String.valueOf(fileNumber) + ".xml";
+        MakeXML generator;
+        generator = new MakeXML(minSwitch,maxSwitch,fileAddress,fileNumber);
+        currSize = currSize + generator.makeFile();
         }
-        
-        pb.setProgress(1);
-        
-        if(pb.getProgress() == 1){
-            FinishPage fp = new FinishPage(true);
-            fp.start(primaryStage);
+        }catch (InterruptedException e){
+        } catch (FileNotFoundException | UnsupportedEncodingException ex) {
+        Logger.getLogger(GenerateData.class.getName()).log(Level.SEVERE, null, ex);
+        } finally{
+        Platform.runLater(() -> {
+        pb.setProgress(((double)currSize)/((double)sizeOfData));
+        });
         }
+        }).start();*/
+           
         
+        grid.add(pb, 0, 1);
+        grid.add(hbBtn, 0, 5);
+        Scene scene = new Scene(grid, 500, 400);
+        primaryStage.setScene(scene);
         primaryStage.show();
+        
+        BuildXML bX = new BuildXML(targetFolder,sizeOfData,minSwitch,maxSwitch);
+        bX.buildFiles();
+
+        FinishPage fp = new FinishPage(true);
+        fp.start(primaryStage);        
     }
     
     public GenerateData(String x, long y,int a, int b){
