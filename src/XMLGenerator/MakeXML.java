@@ -38,13 +38,13 @@ public class MakeXML{
             for(int i=1;i<=numOfSwitch;i++){
                 writer.println("<Switch" + i + ">");
                 
-                for(int j=1;j<=3600;j++){
+                for(int j=1;j<=60;j++){
                     
-                    writer.println("<Time: " + j/60 + " minutes " + j%60 + " seconds>");
+                    writer.println("<Time " + j + " minutes>");
                     
                     writer.println((float)randObj.nextInt(20) + randObj.nextFloat());
                     
-                    writer.println("</Time: " + j/60 + " minutes " + j%60 + " seconds>");
+                    writer.println("</Time " + j + " minutes>");
                 }
                 
                 writer.println("</Switch" + i + ">");
